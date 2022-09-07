@@ -1,3 +1,4 @@
+import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 import { CountryCounts, FilteredStudents, ResultWithExtractedLl } from './src/types/index';
 import mongoose from 'mongoose';
 import { First } from './src/db/FirstSchema';
@@ -5,10 +6,11 @@ import { Second } from './src/db/SecondSchema';
 import { Third } from './src/db/ThirdSchema';
 import { firstCollectionInitialData } from './src/initialData/first';
 import { secondCollectionInitialData } from './src/initialData/second';
-
+dotenv.config()
 const init = async () => {
   // 1
-  await mongoose.connect('mongodb://localhost:27017/gologin');
+  console.log(process.env.MONGO_URI);
+  await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/gologin');
   // 2
   await First.insertMany(firstCollectionInitialData);
   await Second.insertMany(secondCollectionInitialData);
