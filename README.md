@@ -4,4 +4,4 @@
 2) Clone this repository with 'git clone' command
 3) Install required dependences with 'npm i' command
 4) Provide your mongoURI in .env file. Otherwise it would be set mongodb://localhost:27017/gologin as default
-5) start node proccess with 'npm start' command
+5) Start node proccess with 'npm start' command
